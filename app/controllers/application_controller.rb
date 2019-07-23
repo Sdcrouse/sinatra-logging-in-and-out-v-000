@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
       erb :error
     end
     
-    # Now that I think about it, the code above doesn't make as much sense as the solution, which instead calls User.find_by()
+    # Now that I think about it, the code above ^^^^^ doesn't make as much sense as the solution, which instead calls User.find_by_id(session[:user_id]), then checks to see whether that User is nil.
     
     # The code below, along with some of the commented code in the account.erb file, works.
     # However, for reasons mentioned in account.erb, I don't need to put the session hash into an instance variable. 
