@@ -22,20 +22,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    @current_user = User.find_by_id(session[:user_id])
-    if @current_user
+    # Here's the code that works:
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
       erb :account
     else
       erb :error
     end
-    
-    # Here's the code that works:
-    # if Helpers.is_logged_in?(session)
-    #   @user = Helpers.current_user(session)
-    #   erb :account
-    # else
-    #   erb :error
-    # end
     
     # Now that I think about it, the code above ^^^^^ doesn't make as much sense as the solution, which instead calls User.find_by_id(session[:user_id]), then checks to see whether that User is nil.
     
