@@ -28,6 +28,8 @@ class ApplicationController < Sinatra::Base
       erb :error
     end
     
+    # Now that I think about it, the code above doesn't make as much sense as the solution, which instead calls 
+    
     # The code below, along with some of the commented code in the account.erb file, works.
     # However, for reasons mentioned in account.erb, I don't need to put the session hash into an instance variable. 
     # Also, it's better to put as much logic as possible into Controllers and helpers; only #Helpers.current_user needs to be called in account.erb . 
