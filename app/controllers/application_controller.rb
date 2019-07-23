@@ -12,6 +12,8 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     user = User.find_by(username: params[:username], password: params[:password])
+    # The danger here is that multiple users could have the same username, now. Check out the solution for something a little more secure.
+    
     if user
       session[:user_id] = user.id
       redirect to '/account'
